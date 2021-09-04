@@ -1,9 +1,9 @@
-import { Entry } from "entry";
+import Entry from "entry";
 
 export const Example = () => {
   return (
     <>
-      <Entry></Entry>
+      <Entry />
     </>
   );
 };
