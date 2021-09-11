@@ -1,0 +1,85 @@
+{
+  "managers": [
+    {
+      "id": 1,
+      "name": "Tianyang Guan"
+    },
+    {
+      "id": 2,
+      "name": "Raymond"
+    },
+    {
+      "id": 3,
+      "name": "Vincent"
+    },
+    {
+      "id": 4,
+      "name": "Alex"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Project1",
+      "manager_id": 3,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    },
+    {
+      "id": 2,
+      "name": "Project1",
+      "manager_id": 1,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    },
+    {
+      "id": 3,
+      "name": "Project2",
+      "manager_id": 4,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    },
+    {
+      "id": 4,
+      "name": "Project4",
+      "manager_id": 2,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    },
+    {
+      "id": 5,
+      "name": "Project3",
+      "manager_id": 3,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    },
+    {
+      "id": 6,
+      "name": "Project5",
+      "manager_id": 1,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    },
+    {
+      "id": 7,
+      "name": "Project2",
+      "manager_id": 4,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    },
+    {
+      "id": 8,
+      "name": "Project5",
+      "manager_id": 2,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    },
+    {
+      "id": 9,
+      "name": "Project6",
+      "manager_id": 3,
+      "tream_id": "Team One",
+      "created_id": 982396349
+    }
+  ]
+}
