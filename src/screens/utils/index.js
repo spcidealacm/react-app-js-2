@@ -29,3 +29,71 @@ export const useDebounce = (value, delay) => {
   }, [value, delay]);
   return debounceValue;
 };
+
+// console.log("A")
+// console.log("AB")
+// console.log("ABC")
+
+const debounce = () => {
+  let timeout;
+  return (msg) => {
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => console.log(msg), 2000);
+  };
+};
+
+const log = debounce();
+
+log("A");
+log("AB");
+log("ABC");
+
+// function* generateNum(){
+//   let number = 0;
+//   while(1){
+//     yield ++number;
+//   }
+// }
+
+// const getNum = generateNum();
+// const getNextNum = () => (getNum.next().value)
+
+// const func = (callback, time) =>{
+//   let timeout;
+//   return () =>{
+//     if(timeout) {
+//       clearTimeout(timeout)
+//     }
+//     timeout = setTimeout(callback, time)
+//   }
+// }
+
+// const print = func( ()=> console.log("true print"), 1000)
+// print()
+// print()
+// print()
+// print()
+// print()
+// print()
+
+// const debounce = (func, delay) => {
+//   let timeout;
+//   return ()=>{
+//     if (timeout) {
+//       clearTimeout(timeout);
+//       console.log("clearTimeout",getNextNum())
+//     }
+//     timeout = setTimeout(function(){
+//       func();
+//     }, delay)
+//   }
+// }
+
+// const log = debounce(()=> console.log("call"), 1000)
+
+// log()
+// log()
+// log()
+// log()
+// log()
+// log()

@@ -1,9 +1,11 @@
 // import { useState, useEffect } from "react"
+import { Input, Select } from "antd";
 
+const { Option } = Select;
 export const SearchPanel = ({ param, setParam, managers }) => {
   return (
     <form>
-      <input
+      <Input
         type="text"
         value={param.project_name}
         onChange={(evt) => {
@@ -13,22 +15,22 @@ export const SearchPanel = ({ param, setParam, managers }) => {
           });
         }}
       />
-      <select
-        value={param.manager_id}
-        onChange={(evt) => {
+      <Select
+        defaultValue={param.manager_id}
+        onChange={(value) => {
           setParam({
             ...param,
-            manager_id: evt.target.value,
+            manager_id: value,
           });
         }}
       >
-        <option value="">Manager</option>
+        <Option value="">Manager</Option>
         {managers.map((manager) => (
-          <option value={manager.id} key={manager.id}>
+          <Option value={manager.id} key={manager.id}>
             {manager.name}
-          </option>
+          </Option>
         ))}
-      </select>
+      </Select>
     </form>
   );
 };
