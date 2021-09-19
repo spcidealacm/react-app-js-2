@@ -25,6 +25,7 @@ export const List = ({ list, managers }) => {
         "unknown",
     };
     data.push(info);
+    return 0;
   });
 
   return <Table columns={columns} dataSource={data} />;
