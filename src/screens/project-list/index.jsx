@@ -1,10 +1,12 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { List } from "./list";
 import { SearchPanel } from "./search-panel";
 import pipe from "lodash/fp/pipe";
 
 import * as qs from "qs";
-import { cleanObject, isTrue, useDebounce } from "screens/utils";
+import fetch from "isomorphic-fetch";
+import { cleanObject, isTrue, useDebounce } from "../../screens/utils";
 
 import styled from "styled-components";
 
