@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const isTrue = (value) => (value === 0 ? true : value);
-export const isFalsy = (value) => (value === 0 ? false : !value);
+export const isFalsy = (value) => (value === 0 ? false : !value); // return true only when value is undefined or undefined
 
 export const cleanObject = (object) => {
   const result = { ...object };
@@ -34,17 +34,17 @@ export const useDebounce = (value, delay) => {
 // console.log("AB")
 // console.log("ABC")
 
-export const debounce = (time) => {
+export const debounce = () => {
   let timeout;
   return (msg) => {
     if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(() => console.log(msg), time);
+    timeout = setTimeout(() => console.log(msg), 2000);
   };
 };
 
 const log = debounce();
 
-log("A");
+log("A"); // debounce()("A")
 log("AB");
 log("ABC");
 

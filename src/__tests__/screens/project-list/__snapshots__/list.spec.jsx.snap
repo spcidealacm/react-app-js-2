@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../../screens/project-list/list should render table 1`] = `ReactWrapper {}`;

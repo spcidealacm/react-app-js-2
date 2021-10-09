@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd";
-import LocaleButton from "../../screens/LocaleButton/LocaleButton";
+import LocaleButton from "../../../screens/LocaleButton/LocaleButton";
 import { shallow } from "enzyme";
 
 describe("../../screens/LocaleButton/LocaleButton", () => {
@@ -8,7 +8,6 @@ describe("../../screens/LocaleButton/LocaleButton", () => {
     const localeButton = shallow(<LocaleButton />);
 
     expect(localeButton.find(Button)).toHaveLength(1);
-    console.log(localeButton.debug());
   });
 
   it("should have a default state of en by default", () => {

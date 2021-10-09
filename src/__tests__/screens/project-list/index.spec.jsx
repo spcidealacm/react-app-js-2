@@ -1,14 +1,14 @@
 import React from "react";
-import { ProjectSearchList } from "../../screens/project-list/index";
+import { ProjectSearchList } from "../../../screens/project-list/index";
 import { act } from "react-dom/test-utils";
 import { shallow, mount } from "enzyme";
 
-jest.mock("../../screens/project-list/list", () => ({
+jest.mock("../../../screens/project-list/list", () => ({
   default: jest.fn(),
   List: (props) => <div className="list" props={props} />,
 }));
 
-jest.mock("../../screens/project-list/search-panel", () => ({
+jest.mock("../../../screens/project-list/search-panel", () => ({
   default: jest.fn(),
   SearchPanel: (props) => <div className="search-panel" props={props} />,
 }));
@@ -39,9 +39,7 @@ describe("../../screens/project-list/index", () => {
 
     await act(async () => {
       wrapper = await mount(<ProjectSearchList />);
-      Promise.resolve();
+      // Promise.resolve();
     });
-
-    console.log(wrapper.debug());
   });
 });
