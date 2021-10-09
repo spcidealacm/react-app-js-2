@@ -2,6 +2,11 @@ import React from "react";
 import { Table } from "antd";
 
 export const List = ({ list, managers }) => {
+  // console.log('list');
+  // console.log(list);
+  // console.log('managers');
+  // console.log(managers);
+
   const columns = [
     {
       title: "Project Name",

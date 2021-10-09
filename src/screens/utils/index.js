@@ -34,11 +34,11 @@ export const useDebounce = (value, delay) => {
 // console.log("AB")
 // console.log("ABC")
 
-const debounce = () => {
+export const debounce = (time) => {
   let timeout;
   return (msg) => {
     if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(() => console.log(msg), 2000);
+    timeout = setTimeout(() => console.log(msg), time);
   };
 };
 

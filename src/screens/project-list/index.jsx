@@ -5,8 +5,8 @@ import { SearchPanel } from "./search-panel";
 import pipe from "lodash/fp/pipe";
 
 import * as qs from "qs";
-import fetch from "isomorphic-fetch";
 import { cleanObject, isTrue, useDebounce } from "../../screens/utils";
+// import LocaleButton from "../LocaleButton";
 
 import styled from "styled-components";
 
@@ -61,6 +61,7 @@ export const ProjectSearchList = () => {
 
   return (
     <StyledProjectList>
+      {/* <LocaleButton /> */}
       <SearchPanel param={param} setParam={setParam} managers={managers} />
       <List list={list} managers={managers} />
     </StyledProjectList>

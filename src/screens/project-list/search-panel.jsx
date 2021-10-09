@@ -3,7 +3,8 @@ import React from "react";
 import { Input, Select } from "antd";
 
 const { Option } = Select;
-export const SearchPanel = ({ param, setParam, managers }) => {
+
+export const SearchPanel = React.memo(({ param, setParam, managers }) => {
   return (
     <form>
       <Input
@@ -34,4 +35,4 @@ export const SearchPanel = ({ param, setParam, managers }) => {
       </Select>
     </form>
   );
-};
+});
