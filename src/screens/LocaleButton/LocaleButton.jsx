@@ -5,13 +5,13 @@ export default class LocaleButton extends React.Component {
   constructor() {
     super();
     this.state = {
-      locale: "en",
+      locale: "cn",
     };
   }
 
   toggleLocale() {
     this.setState((prevState) => {
-      return { locale: prevState.locale === "en" ? "cn" : "en" };
+      return { locale: prevState.locale === "cn" ? "en" : "cn" };
     });
   }
 

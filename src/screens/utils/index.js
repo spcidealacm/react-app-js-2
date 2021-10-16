@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const isTrue = (value) => (value === 0 ? true : value);
-export const isFalsy = (value) => (value === 0 ? false : !value); // return true only when value is undefined or undefined
+export const isFalsy = (value) => (value === 0 ? false : !value); // return true only when value is undefined or null
 
 export const cleanObject = (object) => {
   const result = { ...object };

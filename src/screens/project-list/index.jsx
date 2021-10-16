@@ -6,7 +6,7 @@ import pipe from "lodash/fp/pipe";
 
 import * as qs from "qs";
 import { cleanObject, isTrue, useDebounce } from "../../screens/utils";
-// import LocaleButton from "../LocaleButton";
+import LocaleButton from "../LocaleButton";
 
 import styled from "styled-components";
 
@@ -67,3 +67,18 @@ export const ProjectSearchList = () => {
     </StyledProjectList>
   );
 };
+
+// {
+/* <ProjectSearchList>
+<styled.div>
+  <div className="sc-bdfBQB ffydFq">
+    <SearchPanel param={{...}} setParam={[Function: bound dispatchAction]} managers={{...}}>
+      <div className="search-panel" props={{...}} />
+    </SearchPanel>
+    <List list={{...}} managers={{...}}>
+      <div className="list" props={{...}} />
+    </List>
+  </div>
+</styled.div>
+</ProjectSearchList>  */
+// }

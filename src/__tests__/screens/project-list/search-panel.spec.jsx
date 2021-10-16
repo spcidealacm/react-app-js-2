@@ -35,4 +35,18 @@ describe("../../screens/project-list/list", () => {
       project_name: "123",
     });
   });
+
+  it("should trigger Select onChange", () => {
+    const setParamSpy = jest.fn();
+
+    const props = makeProps({ setParam: setParamSpy });
+    const wrapper = shallow(<SearchPanel {...props} />);
+    wrapper.find(Select).props().onChange("123");
+
+    expect(setParamSpy).toHaveBeenCalledTimes(1);
+    expect(setParamSpy).toHaveBeenCalledWith({
+      manager_id: "123",
+      project_name: "",
+    });
+  });
 });
