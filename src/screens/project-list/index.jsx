@@ -6,7 +6,7 @@ import pipe from "lodash/fp/pipe";
 
 import * as qs from "qs";
 import { cleanObject, isTrue, useDebounce } from "../../screens/utils";
-import LocaleButton from "../LocaleButton";
+// import LocaleButton from "../LocaleButton";
 
 import styled from "styled-components";
 
@@ -19,10 +19,20 @@ const StyledProjectList = styled.div`
   align-items: center;
 `;
 
+const functions = new Set();
+
 export const ProjectSearchList = () => {
-  const [param, setParam] = useState({ project_name: "", manager_id: "" }); // param.manager_id param.project_name
+  // const [param, setParam] = useState({ project_name: "", manager_id: "" }); // param.manager_id param.project_name
+  const [projectName, setProjectName] = useState("");
+  const [managerId, setManagerId] = useState("");
+
   const [managers, setManagers] = useState([]);
   const [list, setList] = useState([]);
+
+  const param = React.useMemo(
+    () => ({ project_name: projectName, manager_id: managerId }),
+    [projectName, managerId]
+  );
 
   useEffect(() => {
     fetch(`${apiURL}/managers`).then(async (response) => {
@@ -30,9 +40,13 @@ export const ProjectSearchList = () => {
         setManagers(await response.json());
       }
     });
-  }, []);
 
-  const changeParamProjectName = (object) => {
+    document.title = "New Title"; // always working
+  }, []); //didMount
+
+  // document.title = ""; // may not working
+
+  const changeParamProjectName = React.useCallback((object) => {
     const result = { ...object };
     const value = result["project_name"];
     if (isTrue(value)) {
@@ -40,8 +54,11 @@ export const ProjectSearchList = () => {
       delete result["project_name"];
     }
     return result;
-  };
+  }, []);
 
+  functions.add(changeParamProjectName);
+
+  // { project_name: projectName, manager_id: managerId }
   const debouncedParam = useDebounce(param, 300);
 
   useEffect(() => {
@@ -57,13 +74,19 @@ export const ProjectSearchList = () => {
         }
       }
     );
-  }, [debouncedParam]);
+  }, [debouncedParam, changeParamProjectName]); // didUpdate
 
   return (
     <StyledProjectList>
-      {/* <LocaleButton /> */}
-      <SearchPanel param={param} setParam={setParam} managers={managers} />
+      <SearchPanel
+        projectName={projectName}
+        setProjectName={setProjectName}
+        managerId={managerId}
+        setManagerId={setManagerId}
+        managers={managers}
+      />
       <List list={list} managers={managers} />
+      <div>{`created functions number ${functions.size}`}</div>
     </StyledProjectList>
   );
 };

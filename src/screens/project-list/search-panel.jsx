@@ -5,61 +5,45 @@ import { Input, Select } from "antd";
 
 const { Option } = Select;
 
-// const SearchSelect = React.memo(() => {
-//   const param = { manager_id: "" };
-//   const setParam = _.noop;
-//   const managers = [];
+const SearchSelect = React.memo(({ setManagerId, managerId, managers }) => {
+  return (
+    <>
+      <Select
+        defaultValue={managerId}
+        onChange={(value) => {
+          setManagerId(value);
+        }}
+      >
+        <Option value="">Manager</Option>
+        {managers.map((manager) => (
+          <Option value={manager.id} key={manager.id}>
+            {manager.name}
+          </Option>
+        ))}
+      </Select>
+    </>
+  );
+});
 
-//   return (
-//     <>
-//       <div>Hello Select</div>
-//       <Select
-//         defaultValue={param.manager_id}
-//         onChange={(value) => {
-//           setParam({
-//             ...param,
-//             manager_id: value,
-//           });
-//         }}
-//       >
-//         <Option value="">Manager</Option>
-//         {managers.map((manager) => (
-//           <Option value={manager.id} key={manager.id}>
-//             {manager.name}
-//           </Option>
-//         ))}
-//       </Select>
-//     </>
-//   );
-// });
-
-export const SearchPanel = ({ param, setParam, managers }) => (
+export const SearchPanel = ({
+  projectName,
+  setProjectName,
+  managerId,
+  setManagerId,
+  managers,
+}) => (
   <form>
     <Input
       type="text"
-      value={param.project_name}
+      value={projectName}
       onChange={(evt) => {
-        setParam({
-          ...param,
-          project_name: evt.target.value,
-        });
+        setProjectName(evt.target.value);
       }}
     />
-    <Select
-      defaultValue={param.manager_id}
-      onChange={(value) => {
-        setParam({
-          ...param,
-          manager_id: value,
-        });
-      }}
-    >
-      <Option value="">Manager</Option>
-      {managers.map((manager) => (
-        <Option value={manager.id} key={manager.id}>
-          {manager.name}
-        </Option>
-      ))}
-    </Select>
+    <SearchSelect
+      setManagerId={setManagerId}
+      managerId={managerId}
+      managers={managers}
+    />
   </form>
 );
